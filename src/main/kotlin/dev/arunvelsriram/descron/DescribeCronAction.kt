@@ -1,15 +1,20 @@
 package dev.arunvelsriram.descron
 
+import com.intellij.codeInsight.hint.HintManager
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
+import com.intellij.openapi.components.ServiceManager
+import com.intellij.openapi.editor.Editor
 
 
 class DescribeCronAction : AnAction() {
+    private val cronDescriptor = ServiceManager.getService(CronDescriptor::class.java)
+    private val hintManager = HintManager.getInstance()
+
     override fun update(e: AnActionEvent) {
         val editor = e.getData(PlatformDataKeys.EDITOR)
-        val selectedText = editor?.selectionModel?.selectedText?.trim() ?: ""
-        if (selectedText.isEmpty()) {
+        if (getSelectedText(editor).isEmpty()) {
             e.presentation.isEnabled = false
             e.presentation.isVisible = false
         } else {
@@ -19,6 +24,14 @@ class DescribeCronAction : AnAction() {
     }
 
     override fun actionPerformed(e: AnActionEvent) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val editor = e.getData(PlatformDataKeys.EDITOR)
+        try {
+            val description = cronDescriptor.describe(getSelectedText(editor))
+            hintManager.showInformationHint(editor!!, description)
+        } catch (e: IllegalArgumentException) {
+            hintManager.showErrorHint(editor!!, e.message ?: "Failed to describe cron")
+        }
     }
+
+    private fun getSelectedText(editor: Editor?) = editor?.selectionModel?.selectedText?.trim() ?: ""
 }

@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "com.cronutils:cron-utils:9.0.2"
     testImplementation "org.junit.jupiter:junit-jupiter-api:5.6.1"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.6.1"
     testImplementation "io.mockk:mockk:1.9.3.kotlin12"
