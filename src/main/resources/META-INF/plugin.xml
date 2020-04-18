@@ -19,6 +19,7 @@
                 id="org.intellij.sdk.action.GroupPopDialogAction"
                 text="DescCron" description="SDK static grouped action example">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="control shift D" second-keystroke="C"/>
         </action>
     </actions>
 </idea-plugin>
