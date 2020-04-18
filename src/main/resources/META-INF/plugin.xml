@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>dev.arunvelsriram.descron</id>
-    <name>Descron</name>
+    <id>dev.arunvelsriram.desccron</id>
+    <name>DescCron</name>
     <vendor email="arunvelsriram@gmail.com" url="https://arunvelsriram.dev">Arunvel Sriram</vendor>
 
     <description><![CDATA[
@@ -15,9 +15,9 @@
     </extensions>
 
     <actions>
-        <action class="dev.arunvelsriram.descron.DescribeCronAction"
+        <action class="dev.arunvelsriram.desccron.DescribeCronAction"
                 id="org.intellij.sdk.action.GroupPopDialogAction"
-                text="Descron" description="SDK static grouped action example">
+                text="DescCron" description="SDK static grouped action example">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
         </action>
     </actions>

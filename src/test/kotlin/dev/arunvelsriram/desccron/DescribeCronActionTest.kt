@@ -1,4 +1,4 @@
-package dev.arunvelsriram.descron
+package dev.arunvelsriram.desccron
 
 import com.intellij.codeInsight.hint.HintManager
 import com.intellij.openapi.actionSystem.AnActionEvent

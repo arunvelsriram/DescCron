@@ -1,4 +1,4 @@
-package dev.arunvelsriram.descron
+package dev.arunvelsriram.desccron
 
 import com.cronutils.descriptor.CronDescriptor
 import com.cronutils.model.CronType
