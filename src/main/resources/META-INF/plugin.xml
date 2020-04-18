@@ -4,7 +4,8 @@
     <vendor email="arunvelsriram@gmail.com" url="https://arunvelsriram.dev">Arunvel Sriram</vendor>
 
     <description><![CDATA[
-     plugin description goes here...............
+    DescCron (Describe Cron) is an IntelliJ plugin for descriptive view of cron expressions for humans.
+    It's file format agnostic, as the cron expression to be described is a user selected text.
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
