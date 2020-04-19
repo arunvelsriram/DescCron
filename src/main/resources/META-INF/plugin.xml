@@ -6,8 +6,11 @@
     <idea-version since-build="193"/>
 
     <description><![CDATA[
-    DescCron (Describe Cron) is an IntelliJ plugin for descriptive view of cron expressions for humans.
-    It's file format agnostic, as the cron expression to be described is a user selected text.
+    <p>DescCron (Describe Cron) provides a descriptive view of cron expressions for humans.</p>
+    <br />
+    <p>It's file format agnostic, as the cron expression to be described is a user selected text.</p>
+    <br />
+    <p>On GitHub: <a href="https://github.com/arunvelsriram/DescCron/">https://github.com/arunvelsriram/DescCron/</a></p>
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
