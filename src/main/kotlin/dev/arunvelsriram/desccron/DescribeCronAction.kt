@@ -4,13 +4,13 @@ import com.intellij.codeInsight.hint.HintManager
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
-import com.intellij.openapi.components.ServiceManager
+import com.intellij.openapi.components.service
 import com.intellij.openapi.editor.Editor
 
 
 class DescribeCronAction : AnAction() {
-    private val cronDescriptor = ServiceManager.getService(CronDescriptor::class.java)
-    private val hintManager = HintManager.getInstance()
+    private val cronDescriptor = service<CronDescriptor>()
+    private val hintManager = service<HintManager>()
 
     override fun update(e: AnActionEvent) {
         val editor = e.getData(PlatformDataKeys.EDITOR)

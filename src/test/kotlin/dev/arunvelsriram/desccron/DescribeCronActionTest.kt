@@ -3,7 +3,7 @@ package dev.arunvelsriram.desccron
 import com.intellij.codeInsight.hint.HintManager
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
-import com.intellij.openapi.components.ServiceManager
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.SelectionModel
 import io.mockk.*
@@ -30,10 +30,13 @@ internal class DescribeCronActionTest {
     @BeforeEach
     internal fun setUp() {
         MockKAnnotations.init(this)
-        mockkStatic(ServiceManager::class)
-        every { ServiceManager.getService(CronDescriptor::class.java) } returns cronDescriptor
-        mockkStatic(HintManager::class)
-        every { HintManager.getInstance() } returns hintManager
+        mockkStatic(ApplicationManager::class)
+        every {
+            ApplicationManager.getApplication().getService(CronDescriptor::class.java, any())
+        } returns cronDescriptor
+        every {
+            ApplicationManager.getApplication().getService(HintManager::class.java, any())
+        } returns hintManager
     }
 
     @Test
