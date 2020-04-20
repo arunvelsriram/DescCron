@@ -13,8 +13,10 @@
     <p>On GitHub: <a href="https://github.com/arunvelsriram/DescCron/">https://github.com/arunvelsriram/DescCron/</a></p>
     ]]></description>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
+    <change-notes><![CDATA[
+    <p>Changes notes for each release is available in <a href="https://github.com/arunvelsriram/DescCron/releases">releases</a>.</p>
+    ]]></change-notes>
+
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
