@@ -4,6 +4,8 @@ DescCron (Describe Cron) is a plugin for [JetBrains IDEs](https://www.jetbrains.
 
 It's file format agnostic, as the cron expression to be described is a user selected text.
 
+![Demo for DescCron](./DescCron.gif)
+
 ## How to use?
 
 ### Popup Menu
