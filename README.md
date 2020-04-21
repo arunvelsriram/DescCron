@@ -6,6 +6,8 @@ It's file format agnostic, as the cron expression to be described is a user sele
 
 ![Demo for DescCron](./DescCron.gif)
 
+[Plugin Homepage](https://plugins.jetbrains.com/plugin/14159-desccron)
+
 ## How to use?
 
 ### Popup Menu
