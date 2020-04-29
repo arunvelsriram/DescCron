@@ -23,11 +23,21 @@
     </extensions>
 
     <actions>
-        <action class="dev.arunvelsriram.desccron.DescribeCronAction"
-                id="org.intellij.sdk.action.GroupPopDialogAction"
-                text="DescCron" description="SDK static grouped action example">
+        <group id="DescCron.Menu" text="DescCron" description="DescCron plugin"
+               popup="true" compact="true">
             <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-            <keyboard-shortcut keymap="$default" first-keystroke="control shift D" second-keystroke="C"/>
-        </action>
+            <action id="DescCron.DescribeMenuItem"
+                    class="dev.arunvelsriram.desccron.DescribeCronAction"
+                    text="Describe"
+                    description="Describe a cron expression">
+                <keyboard-shortcut keymap="$default" first-keystroke="control shift D" second-keystroke="C"/>
+            </action>
+            <action id="DescCron.NextRunMenuItem"
+                    class="dev.arunvelsriram.desccron.NextRunAction"
+                    text="Next Run"
+                    description="Show next run">
+                <keyboard-shortcut keymap="$default" first-keystroke="control shift D" second-keystroke="N"/>
+            </action>
+        </group>
     </actions>
 </idea-plugin>
