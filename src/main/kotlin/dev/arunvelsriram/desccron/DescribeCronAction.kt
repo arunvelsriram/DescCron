@@ -15,7 +15,7 @@ class DescribeCronAction : MenuItemAction() {
         try {
             val description = cronDescriptor.describe(getSelectedText(editor))
             hintManager.showInformationHint(editor!!, description)
-        } catch (e: IllegalArgumentException) {
+        } catch (e: Exception) {
             hintManager.showErrorHint(editor!!, e.message ?: "Failed to describe cron")
         }
     }

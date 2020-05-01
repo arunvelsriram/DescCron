@@ -19,9 +19,6 @@ internal class DescribeCronActionTest {
     lateinit var editor: Editor
 
     @MockK
-    lateinit var selectionModel: SelectionModel
-
-    @MockK
     lateinit var cronDescriptor: CronDescriptor
 
     @MockK
@@ -40,7 +37,7 @@ internal class DescribeCronActionTest {
     }
 
     @Test
-    fun `should show cron description as info hint`() {
+    fun `should show cron description`() {
         every { actionEvent.getData(PlatformDataKeys.EDITOR) } returns editor
         every { editor.selectionModel.selectedText } returns "* * * * *"
         every { cronDescriptor.describe("* * * * *") } returns "every minute"
@@ -48,12 +45,27 @@ internal class DescribeCronActionTest {
         val action = DescribeCronAction()
 
         action.actionPerformed(actionEvent)
+
         verify { cronDescriptor.describe("* * * * *") }
         verify { hintManager.showInformationHint(editor, "every minute") }
     }
 
     @Test
-    fun `should show error message as error hint`() {
+    fun `should handle exception and show default error message`() {
+        every { actionEvent.getData(PlatformDataKeys.EDITOR) } returns editor
+        every { editor.selectionModel.selectedText } returns "invalid"
+        every { cronDescriptor.describe("invalid") } throws IllegalArgumentException()
+        every { hintManager.showErrorHint(editor, "Failed to describe cron") } just runs
+        val action = DescribeCronAction()
+
+        action.actionPerformed(actionEvent)
+
+        verify { cronDescriptor.describe("invalid") }
+        verify { hintManager.showErrorHint(editor, "Failed to describe cron") }
+    }
+
+    @Test
+    fun `should handle exception and show error message`() {
         every { actionEvent.getData(PlatformDataKeys.EDITOR) } returns editor
         every { editor.selectionModel.selectedText } returns "invalid"
         every { cronDescriptor.describe("invalid") } throws IllegalArgumentException("failed to describe")
@@ -61,6 +73,7 @@ internal class DescribeCronActionTest {
         val action = DescribeCronAction()
 
         action.actionPerformed(actionEvent)
+
         verify { cronDescriptor.describe("invalid") }
         verify { hintManager.showErrorHint(editor, "failed to describe") }
     }
