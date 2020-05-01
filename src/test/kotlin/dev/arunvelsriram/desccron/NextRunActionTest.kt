@@ -5,13 +5,13 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.editor.Editor
-import com.intellij.openapi.editor.SelectionModel
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import java.time.DateTimeException
 
-internal class DescribeCronActionTest {
+internal class NextRunActionTest {
     @MockK
     lateinit var actionEvent: AnActionEvent
 
@@ -37,44 +37,44 @@ internal class DescribeCronActionTest {
     }
 
     @Test
-    fun `should show cron description`() {
+    fun `should show next run`() {
         every { actionEvent.getData(PlatformDataKeys.EDITOR) } returns editor
         every { editor.selectionModel.selectedText } returns "* * * * *"
-        every { cronDescriptor.describe("* * * * *") } returns "every minute"
-        every { hintManager.showInformationHint(editor, "every minute") } just runs
-        val action = DescribeCronAction()
+        every { cronDescriptor.nextRun("* * * * *") } returns "2020-05-01 13:00:00 IST"
+        every { hintManager.showInformationHint(editor, "2020-05-01 13:00:00 IST") } just runs
+        val action = NextRunAction()
 
         action.actionPerformed(actionEvent)
 
-        verify { cronDescriptor.describe("* * * * *") }
-        verify { hintManager.showInformationHint(editor, "every minute") }
+        verify { cronDescriptor.nextRun("* * * * *") }
+        verify { hintManager.showInformationHint(editor, "2020-05-01 13:00:00 IST") }
     }
 
     @Test
-    fun `should handle exception and show default error message`() {
+    fun `should catch exception and show default error message`() {
         every { actionEvent.getData(PlatformDataKeys.EDITOR) } returns editor
         every { editor.selectionModel.selectedText } returns "invalid"
-        every { cronDescriptor.describe("invalid") } throws IllegalArgumentException()
-        every { hintManager.showErrorHint(editor, "Failed to describe cron") } just runs
-        val action = DescribeCronAction()
+        every { cronDescriptor.nextRun("invalid") } throws IllegalArgumentException()
+        every { hintManager.showErrorHint(editor, "Failed to get next run") } just runs
+        val action = NextRunAction()
 
         action.actionPerformed(actionEvent)
 
-        verify { cronDescriptor.describe("invalid") }
-        verify { hintManager.showErrorHint(editor, "Failed to describe cron") }
+        verify { cronDescriptor.nextRun("invalid") }
+        verify { hintManager.showErrorHint(editor, "Failed to get next run") }
     }
 
     @Test
-    fun `should handle exception and show error message`() {
+    fun `should catch exception and show error message`() {
         every { actionEvent.getData(PlatformDataKeys.EDITOR) } returns editor
         every { editor.selectionModel.selectedText } returns "invalid"
-        every { cronDescriptor.describe("invalid") } throws IllegalArgumentException("failed to describe")
-        every { hintManager.showErrorHint(editor, "failed to describe") } just runs
-        val action = DescribeCronAction()
+        every { cronDescriptor.nextRun("invalid") } throws DateTimeException("some error")
+        every { hintManager.showErrorHint(editor, "some error") } just runs
+        val action = NextRunAction()
 
         action.actionPerformed(actionEvent)
 
-        verify { cronDescriptor.describe("invalid") }
-        verify { hintManager.showErrorHint(editor, "failed to describe") }
+        verify { cronDescriptor.nextRun("invalid") }
+        verify { hintManager.showErrorHint(editor, "some error") }
     }
 }
