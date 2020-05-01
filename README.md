@@ -12,15 +12,26 @@ It's file format agnostic, as the cron expression to be described is a user sele
 
 ### Popup Menu
 
-* Select the cron expression
-* Select DescCron from the Popup Menu
+* Highlight the cron expression
+* Use the options under DescCron group from the Popup Menu
 
 ### Keyboard Shortcut
 
-* Select the cron expression
-* Use the default keybinding:
-    * Mac: ⌘ ⇧ D, C
-    * Windows / Linux: ⌃ ⇧ D, C
+* Highlight the cron expression
+* Use the default keybindings:
+
+#### Mac OS X
+
+|Action   |Keybinding|
+|:-------:|:--------:|
+|Describe |⌘ ⇧ D, C |
+|Next Run |⌘ ⇧ D, N |
+
+#### Linux / Windows
+|Action    |Keybinding  |
+|:--------:|:----------:|
+|Describe  |⌃ ⇧ D, C    |
+|Next Run  |⌃ ⇧ D, N    |
 
 ## Development
 
