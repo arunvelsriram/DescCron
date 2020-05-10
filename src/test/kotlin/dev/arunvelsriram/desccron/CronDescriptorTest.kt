@@ -41,4 +41,11 @@ class CronDescriptorTest {
 
         assertEquals("2020-05-01 14:30:00 IST", d.nextRun("30 */2 * * *"))
     }
+
+    @Test
+    fun `should get the previous run`() {
+        val d = CronDescriptor()
+
+        assertEquals("2020-05-01 12:30:00 IST", d.previousRun("30 */2 * * *"))
+    }
 }

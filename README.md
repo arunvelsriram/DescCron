@@ -23,15 +23,17 @@ It's file format agnostic, as the cron expression to be described is a user sele
 #### Mac OS X
 
 |Action   |Keybinding|
-|:-------:|:--------:|
+|:-------|:--------:|
 |Describe |⌘ ⇧ D, C |
 |Next Run |⌘ ⇧ D, N |
+|Previous Run |⌘ ⇧ D, P |
 
 #### Linux / Windows
 |Action    |Keybinding  |
-|:--------:|:----------:|
+|:--------|:----------:|
 |Describe  |⌃ ⇧ D, C    |
 |Next Run  |⌃ ⇧ D, N    |
+|Previous Run  |⌃ ⇧ D, N    |
 
 ## Development
 
