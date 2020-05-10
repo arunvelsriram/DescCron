@@ -38,6 +38,12 @@
                     description="Show next run">
                 <keyboard-shortcut keymap="$default" first-keystroke="control shift D" second-keystroke="N"/>
             </action>
+            <action id="DescCron.PreviousRunMenuItem"
+                    class="dev.arunvelsriram.desccron.PreviousRunAction"
+                    text="Previous Run"
+                    description="Show previous run">
+                <keyboard-shortcut keymap="$default" first-keystroke="control shift D" second-keystroke="P"/>
+            </action>
         </group>
     </actions>
 </idea-plugin>

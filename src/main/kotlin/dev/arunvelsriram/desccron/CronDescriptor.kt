@@ -30,4 +30,12 @@ class CronDescriptor {
         val nextExecution = executionTime.nextExecution(now)
         return nextExecution.get().format(formatter)
     }
+
+    fun previousRun(expr: String): String {
+        val cron = parser.parse(expr)
+        val executionTime = ExecutionTime.forCron(cron)
+        val now = ZonedDateTime.now()
+        val nextExecution = executionTime.lastExecution(now)
+        return nextExecution.get().format(formatter)
+    }
 }
