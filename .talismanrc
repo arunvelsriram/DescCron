@@ -1,0 +1,3 @@
+fileignoreconfig:
+- filename: .travis.yml
+  checksum: 6389b380b945a411f153ffd0171217b02f5490d25421f68a67900d190b172153
