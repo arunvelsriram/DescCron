@@ -8,7 +8,7 @@ deploy:
   provider: releases
   api_key:
     secure: ibWtHyrJGtAZhA9BYu/ErnCgMgQmb+RhalpzTmUDIl8lKPJMkU5JgTR1sQCQCkQ7NuQbYGOEu3/oCvudDMYLVLQTLcxWytPBulxZ3AqqdKQmQJk9yX8gjcotQnSSckuno4D50OpGZuGNE8w6v9793bydGxedY4h9NJhmXRxmr7fXXUjZrXYm+fjNLyQXsif2VgBFCQ+jsI9kWAjixuswXG/AIIbzQ5k0rjhny4aegerEqLZG2su+sSbth/NoFTX8glM/24zKK1ohAB7y5PSYs9gFptyznvg9HN4m8vKUJc0LDwZuG4zqzNk92M/KIjSDTJxTVtSO/O6ulpBKWPsx2v68Xj/wrFczsR0ahBWvMjCUh4DabmlPL9yMkzVz08KzAWHc1P8a7JP6VSDhBb8aNTfVWk+s8GcS+ty1C8nJcMu9UJpOhk/8oAFUs8tkZ4ZYB7Y2m81Kn5KaYlGNLqUNDa6bO4tlUtqyTxdB1urEk34pyx1z2i9I/7/3TBY1EMFVqMb/0j1vhDM/69wzZc9gXDql6xRVNmdSnYb80+NeWufojVHJdlTDRHPe9vo4M8S2Z5gW9rA3AgnoTKOh7E3IFZdqRktkXO5RIZsOsNjOD0LHLh+eug1Hidsc5GJd+ZYsiUQcOTcy+l9Zcm6Y+G8yHpGMu6FryGYB+2fvTrH2KLQ=
-  file: "build/distributions/DescCron-*.zip"
+  file: "build/distributions/DescCron-$TRAVIS_TAG.zip"
   draft: true
   on:
     tags: true
