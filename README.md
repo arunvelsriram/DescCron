@@ -1,5 +1,7 @@
 # DescCron
 
+[![Build Status](https://travis-ci.org/arunvelsriram/DescCron.svg?branch=master)](https://travis-ci.org/arunvelsriram/DescCron)
+
 DescCron (Describe Cron) is a plugin for [JetBrains IDEs](https://www.jetbrains.com/products.html#type=ide), that provides a descriptive view of cron expressions for humans.
 
 It's file format agnostic, as the cron expression to be described is a user selected text.
