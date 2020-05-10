@@ -38,3 +38,9 @@ It's file format agnostic, as the cron expression to be described is a user sele
 ```bash
 ./gradlew clean build
 ```
+
+## Load the local plugin in IntelliJ for testing
+
+1) Create the plugin archive using `./gradlew clean build`
+2) You can find the archive at `build/distributions/DescCron-*.zip`
+3) Follow steps from [here](https://www.jetbrains.com/help/idea/managing-plugins.html#install_plugin_from_disk) to install plugin from disk
