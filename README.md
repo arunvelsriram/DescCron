@@ -39,4 +39,5 @@ It's file format agnostic, as the cron expression to be described is a user sele
 
 ```bash
 ./gradlew clean build
+./gradlew runIde
 ```
