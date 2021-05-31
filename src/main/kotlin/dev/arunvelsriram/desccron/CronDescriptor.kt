@@ -14,13 +14,19 @@ import java.util.*
 @Service
 class CronDescriptor {
     private val parser = CronParser(CronDefinitionBuilder.instanceDefinitionFor(CronType.UNIX))
-    private val locale = Locale.getDefault()
+    private val locale = Locale.ENGLISH
     private val descriptor = CronDescriptor.instance(locale)
     private val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z", locale)
 
     fun describe(expr: String): String {
-        val cron = parser.parse(expr)
-        return descriptor.describe(cron)
+        return try {
+            val cron = parser.parse(expr)
+            descriptor.describe(cron)
+        } catch (e: Exception) {
+            val parserQuartz = CronParser(CronDefinitionBuilder.instanceDefinitionFor(CronType.QUARTZ))
+            val cron = parserQuartz.parse(expr)
+            descriptor.describe(cron)
+        }
     }
 
     fun nextRun(expr: String): String {
