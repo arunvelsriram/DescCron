@@ -4,6 +4,7 @@ import io.mockk.every
 import io.mockk.mockkStatic
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -26,6 +27,20 @@ class CronDescriptorTest {
         val d = CronDescriptor()
 
         assertEquals("every minute", d.describe("* * * * *"))
+    }
+
+    @Test
+    fun `should not throw exception for cron in QUARTZ format`() {
+        val sut = CronDescriptor()
+
+        assertDoesNotThrow { sut.describe("0 20 0/1 ? * * *") }
+    }
+
+    @Test
+    fun `should describe cron in QUARTZ format`() {
+        val sut = CronDescriptor()
+        val result = sut.describe("0 20 0/1 ? * * *")
+        assertEquals("every 1 hours at minute 20", result)
     }
 
     @Test
