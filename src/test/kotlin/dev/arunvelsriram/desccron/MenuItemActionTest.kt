@@ -1,14 +1,16 @@
 package dev.arunvelsriram.desccron
 
+import com.intellij.codeInsight.hint.HintManager
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
 import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.editor.SelectionModel
 import io.mockk.*
 import io.mockk.impl.annotations.MockK
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import kotlin.test.assertEquals
 
 internal class MenuItemActionTest {
     @MockK
@@ -20,9 +22,22 @@ internal class MenuItemActionTest {
     @MockK
     lateinit var selectionModel: SelectionModel
 
+    @MockK
+    lateinit var hintManager: HintManager
+
     @BeforeEach
     internal fun setUp() {
         MockKAnnotations.init(this)
+
+        mockkStatic(HintManager::class)
+        every {
+            HintManager.getInstance()
+        } returns hintManager
+    }
+
+    @AfterEach
+    internal fun tearDown() {
+        unmockkStatic(HintManager::class)
     }
 
     @Test

@@ -4,11 +4,10 @@ import com.intellij.codeInsight.hint.HintManager
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.PlatformDataKeys
-import com.intellij.openapi.components.service
 import com.intellij.openapi.editor.Editor
 
 abstract class MenuItemAction : AnAction() {
-    private val hintManager = service<HintManager>()
+    private val hintManager = HintManager.getInstance()
 
     override fun update(e: AnActionEvent) {
         val editor = e.getData(PlatformDataKeys.EDITOR)

@@ -6,17 +6,23 @@ import com.cronutils.model.definition.CronDefinitionBuilder
 import com.cronutils.model.time.ExecutionTime
 import com.cronutils.parser.CronParser
 import com.intellij.openapi.components.Service
+import com.intellij.openapi.components.service
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
 
 
 @Service
-class CronDescriptor {
+class CronDescriptorService {
     private val parser = CronParser(CronDefinitionBuilder.instanceDefinitionFor(CronType.UNIX))
     private val locale = Locale.getDefault()
     private val descriptor = CronDescriptor.instance(locale)
     private val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z", locale)
+
+    companion object {
+        @JvmStatic
+        fun getInstance(): CronDescriptorService = service()
+    }
 
     fun describe(expr: String): String {
         val cron = parser.parse(expr)
