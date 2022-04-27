@@ -14,9 +14,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.jetbrains.kotlin:kotlin-reflect"
     implementation 'com.cronutils:cron-utils:9.1.6'
-    testImplementation "org.junit.jupiter:junit-jupiter-api:5.6.1"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.6.1"
-    testImplementation "io.mockk:mockk:1.9.3.kotlin12"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation 'io.mockk:mockk:1.12.3'
 }
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
