@@ -6,7 +6,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-#    if: contains(github.event.client_payload.ref, 'refs/tags/')
+    if: contains(github.event.client_payload.ref, 'refs/tags/')
     steps:
       - uses: actions/checkout@v3
         with:
