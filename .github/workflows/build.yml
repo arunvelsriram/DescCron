@@ -22,15 +22,15 @@ jobs:
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: build/distributions/${{ env.ARTIFACT_NAME }}
-      - name: Trigger Deployment
-        uses: peter-evans/repository-dispatch@v2
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          event-type: deploy
-          client-payload: |
-            {
-              "ref": "${{ github.ref }}",
-              "ref_name": "${{ github.ref_name }}",
-              "run_id": "${{ github.run_id }}",
-              "artifact_name": "${{ env.ARTIFACT_NAME }}"
-            }
+      # - name: Trigger Deployment
+      #   uses: peter-evans/repository-dispatch@v2
+      #   with:
+      #     token: ${{ secrets.ACCESS_TOKEN }}
+      #     event-type: deploy
+      #     client-payload: |
+      #       {
+      #         "ref": "${{ github.ref }}",
+      #         "ref_name": "${{ github.ref_name }}",
+      #         "run_id": "${{ github.run_id }}",
+      #         "artifact_name": "${{ env.ARTIFACT_NAME }}"
+      #       }
