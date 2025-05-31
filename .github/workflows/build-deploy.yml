@@ -25,6 +25,7 @@ jobs:
   deploy:
     name: Create Guthub Release 
     runs-on: ubuntu-latest
+    needs: build
     if: contains(github.ref, 'refs/tags/')
     steps:
       - name: Create Release
