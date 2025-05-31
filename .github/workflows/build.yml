@@ -18,7 +18,7 @@ jobs:
       - run: ./gradlew clean build --no-daemon
         env:
           ORG_GRADLE_PROJECT_PLUGIN_VERSION: ${{ env.PLUGIN_VERSION }}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ARTIFACT_NAME }}
           path: build/distributions/${{ env.ARTIFACT_NAME }}
