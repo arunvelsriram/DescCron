@@ -45,3 +45,9 @@ tasks.test {
         events("passed", "skipped", "failed")
     }
 }
+
+tasks.runIde {
+    argumentProviders.add(CommandLineArgumentProvider {
+        listOf("/Users/arunvelsrirams/github/arunvelsriram/DescCron/example")
+    })
+}
