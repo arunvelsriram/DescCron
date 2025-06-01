@@ -21,7 +21,7 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
     implementation(kotlin("reflect"))
-    implementation("com.cronutils:cron-utils:9.1.6")
+    implementation("com.cronutils:cron-utils:9.2.1")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.0")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.13.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.13.0")
