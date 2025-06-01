@@ -1,6 +1,6 @@
 plugins {
     id("org.jetbrains.intellij.platform") version "2.6.0"
-    kotlin("jvm") version "1.9.21"
+    kotlin("jvm") version "2.1.21"
 }
 
 group = "dev.arunvelsriram.desccron"
@@ -28,7 +28,7 @@ dependencies {
     testImplementation("io.mockk:mockk:1.14.2")
     
     intellijPlatform {
-        intellijIdeaCommunity("2024.3")
+        intellijIdeaCommunity("2025.1")
     }
 }
 
