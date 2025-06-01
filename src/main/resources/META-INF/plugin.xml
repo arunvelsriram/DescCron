@@ -13,13 +13,13 @@
     <p>Supported cron types:</p>
     <ul>
         <li>
-            <a href="http://www.unix.com/man-page/linux/5/crontab/">✅ Unix</a>
+            <a href="https://www.unix.com/man-page/linux/5/crontab/">✅ Unix</a>
         </li>
         <li>
-            <a href="http://www.sauronsoftware.it/projects/cron4j/">❌ Cron4j</a>
+            <a href="https://www.sauronsoftware.it/projects/cron4j/">❌ Cron4j</a>
         </li>
         <li>
-            <a href="http://quartz-scheduler.org/">❌ Quartz</a>
+            <a href="https://quartz-scheduler.org/">❌ Quartz</a>
         </li>
         <li>
             <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html">❌ Spring</a>
