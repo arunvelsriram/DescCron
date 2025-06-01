@@ -4,6 +4,12 @@ DescCron (Describe Cron) is a plugin for [JetBrains IDEs](https://www.jetbrains.
 
 It's file format agnostic, as the cron expression to be described is a user selected text.
 
+Supported cron types:
+- [x] [Unix](http://www.unix.com/man-page/linux/5/crontab/)
+- [ ] [Cron4j](http://www.sauronsoftware.it/projects/cron4j/)
+- [ ] [Quartz](http://quartz-scheduler.org/)
+- [ ] [Spring](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html)
+
 ![Demo for DescCron](./DescCron.gif)
 
 [Plugin Homepage](https://plugins.jetbrains.com/plugin/14159-desccron)
