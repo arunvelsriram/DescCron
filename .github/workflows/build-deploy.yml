@@ -21,6 +21,9 @@ jobs:
       - run: ./gradlew clean build --no-daemon
         env:
           ORG_GRADLE_PROJECT_PLUGIN_VERSION: ${{ env.PLUGIN_VERSION }}
+      - run: ./gradlew buildPlugin --no-daemon
+        env:
+          ORG_GRADLE_PROJECT_PLUGIN_VERSION: ${{ env.PLUGIN_VERSION }}
       - name: Upload plugin artifact
         uses: actions/upload-artifact@v4
         with:
